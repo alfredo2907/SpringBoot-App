@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sec-spring-boot-app
+spec:
+  selector:
+    matchLabels:
+      app: sec-spring-boot-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: sec-spring-boot-app
+    spec:
+      containers:
+        - name: sec-spring-boot-app
+          image: test-springboot-app3:1.0 
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
